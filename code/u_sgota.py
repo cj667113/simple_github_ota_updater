@@ -1,1 +1,2 @@
 x=test
+y=x
