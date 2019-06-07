@@ -3,7 +3,7 @@ import re
 import datetime
 import os
 import json
-def sgota(url):
+def update(url):
     r =requests.get(url)
     s=(r.json())
     filtered=s[0]["commit"]["author"]["date"]
