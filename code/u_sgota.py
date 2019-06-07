@@ -32,7 +32,7 @@ def sgota(url):
     d2 = datetime.datetime.strptime(filtered,"%Y-%m-%dT%H:%M:%SZ").date()
     print(d1)
     print(d2)
-    if d1>d2:
+    if d1==d2:
         print(code_name+" is up to date")
     else:
         print("Updating Code:"+code_name)
