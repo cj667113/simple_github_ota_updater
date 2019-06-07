@@ -28,8 +28,8 @@ def sgota(url):
     d1 = open(version_name,'r')
     d1 = d1.readline()
     d1 = d1.split("|")
-    d1 = datetime.datetime.strptime(d1[1],"%Y-%m-%dT%H:%M:%SZ").date()
-    d2 = datetime.datetime.strptime(filtered,"%Y-%m-%dT%H:%M:%SZ").date()
+    d1 = datetime.datetime.strptime(d1[1],"%Y-%m-%dT%H:%M:%SZ")
+    d2 = datetime.datetime.strptime(filtered,"%Y-%m-%dT%H:%M:%SZ")
     print(d1)
     print(d2)
     if d1==d2:
