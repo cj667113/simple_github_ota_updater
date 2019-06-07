@@ -48,4 +48,5 @@ def sgota(url):
         f=open(version_name,"w+")
         f.write(code_name+"|"+filtered)
         f.close()
+        print("Update Complete")
 sgota('https://api.github.com/repos/cj667113/simple_github_ota_updater/commits?path=code/u_sgota.py')
