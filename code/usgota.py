@@ -4,17 +4,17 @@ import utime
 import uos
 import json
 def update(url):
-    r =urequests.get(url)
+    r =urequests.request("GET",url,headers={"user-agent":"cj667113"})
     s=(r.json())
     filtered=s[0]["commit"]["author"]["date"]
     prefl=url
     prfl_filter= re.search('(path.*.py$)',prefl)
-    prfl_filter= re.sub('path=','',prfl_filter.group())
+    prfl_filter= prfl_filter.group(0).replace('path=','')
     prfl_filter= prfl_filter.split(r'/')
     for x in prfl_filter:
         if re.search('.*.py',x):
             code_name=x
-            version_name=re.sub('.py','_version.log',code_name)
+            version_name=code_name.replace('.py','_version.log')
         else:
             pass
     print(code_name)
@@ -33,7 +33,7 @@ def update(url):
     d1= d1.replace(":",",").replace("Z","").replace("-",",").replace("T",",")
     d2= d2.replace(":",",").replace("Z","").replace("-",",").replace("T",",")
     d1=d1.split(",")
-    d2=d1.split(",")
+    d2=d2.split(",")
     d1_collect=[]
     d2_collect=[]
     for x in d1:
