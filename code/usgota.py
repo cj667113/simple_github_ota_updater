@@ -3,6 +3,7 @@ import re
 import utime
 import uos
 import json
+import machine
 def update(url):
     r =urequests.request("GET",url,headers={"user-agent":"cj667113"})
     s=(r.json())
@@ -57,7 +58,7 @@ def update(url):
         print("Updating Code:"+code_name)
         get_download_link = url
         get_download_link = get_download_link.replace(r'commits?path=','contents/')
-        get_download_link =urequests.get(get_download_link)
+        get_download_link =urequests.request("GET",get_download_link,headers={"user-agent":"cj667113"})
         get_download_link=(get_download_link.json())
         download_link=(get_download_link["download_url"])
         nv=urequests.get(download_link)
@@ -68,3 +69,4 @@ def update(url):
         f.write(code_name+"|"+filtered)
         f.close()
         print("Update Complete")
+        machine.reset()
