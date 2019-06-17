@@ -23,7 +23,7 @@ def update(url):
         print('exists')
     else:
         f=open(version_name,"w+")
-        f.write(code_name+"|"+filtered)
+        f.write(code_name+"|"+'0-00-00T00:00:00Z')
         f.close()
     d1 = open(version_name,'r')
     d1 = d1.readline()
