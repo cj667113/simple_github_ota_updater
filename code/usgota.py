@@ -4,16 +4,23 @@ import utime
 import uos
 import json
 import machine
+import gc
 def update(url):
-    r=urequests.request("GET",url,headers={"user-agent":"cj667113"})
+    gc.collect()
+    r =urequests.request("GET",url,headers={"user-agent":"cj667113"})
+    gc.collect()
     s=(r.json())
+    r.close()
     filtered=s[0]["commit"]["author"]["date"]
     prefl=url
     prfl_filter=re.search('(path.*.py$)',prefl)
     prfl_filter=prfl_filter.group(0).replace('path=','')
     prfl_filter=prfl_filter.split(r'/')
     for x in prfl_filter:
-        if re.search('.*.py',x):
+        if re.search('.*.mpy',x):
+            code_name=x
+            version_name=code_name.replace('.mpy','_version.log')
+        elif re.search('.*.py',x):
             code_name=x
             version_name=code_name.replace('.py','_version.log')
         else:
@@ -56,11 +63,12 @@ def update(url):
         print(code_name+" is up to date")
     else:
         print("Updating Code:"+code_name)
-        get_download_link = url
-        get_download_link = get_download_link.replace(r'commits?path=','contents/')
-        get_download_link =urequests.request("GET",get_download_link,headers={"user-agent":"cj667113"})
-        get_download_link=(get_download_link.json())
-        download_link=(get_download_link["download_url"])
+        get_download_link=url
+        get_download_link=get_download_link.replace(r'commits?path=','contents/')
+        get_download_link=urequests.request("GET",get_download_link,headers={"user-agent":"cj667113"})
+        download_link=(get_download_link.json())
+        get_download_link.close()
+        download_link=(download_link["download_url"])
         nv=urequests.get(download_link)
         f=open(code_name,'w+')
         f.write(nv.content)
