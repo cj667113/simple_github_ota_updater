@@ -1,0 +1,6 @@
+README.md
+setup.py
+sgota.egg-info/PKG-INFO
+sgota.egg-info/SOURCES.txt
+sgota.egg-info/dependency_links.txt
+sgota.egg-info/top_level.txt
