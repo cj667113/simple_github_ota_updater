@@ -3,3 +3,11 @@
 This simple over the air updater script will automatically go out to github, look at the dates in which new code is committed and will update the current code running. 
 
 Also note, after using the updater, you will need to restart your main code in order for the new code to take effect. This is required to reload the new changes into memory.
+
+## To Install:
+```
+pip install sgota
+```
+```
+upip install usgota
+```
