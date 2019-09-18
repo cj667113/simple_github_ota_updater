@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: usgota
+Version: 0.0.1
+Summary: OTA Github Updater
+Home-page: https://github.com/cj667113/simple_github_ota_updater
+Author: Christopher M Johnston
+Author-email: chris.johnston60.cj@gmail.com
+License: UNKNOWN
+Description: This project is intended to take code that is uploaded to Github and install new updates based off of commit dates. This program will replace an existing program with the new version.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

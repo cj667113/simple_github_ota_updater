@@ -1,0 +1,6 @@
+README.md
+setup.py
+usgota.egg-info/PKG-INFO
+usgota.egg-info/SOURCES.txt
+usgota.egg-info/dependency_links.txt
+usgota.egg-info/top_level.txt
